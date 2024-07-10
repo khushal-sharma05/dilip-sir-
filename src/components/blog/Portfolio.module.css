@@ -1,0 +1,21 @@
+/* Portfolio.module.css */
+.category-button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    display: inline-block; /* Ensure buttons are displayed inline */
+  }
+  
+  .category-button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  

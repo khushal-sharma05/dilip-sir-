@@ -1,0 +1,12 @@
+/* styles.module.css */
+.imgResponsive {
+  width: 298px;
+  height: 440px;
+}
+
+@media (max-width: 768px) {
+  .imgResponsive {
+    width: 352px;
+    height: 524px;
+  }
+}
