@@ -39,6 +39,9 @@ const setting = {
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
+console.log("BASEURL =====>", baseUrl)
+
+
 const ProjectArea = () => {
    const [isDragged, setIsDragged] = useState(false);
    const [projectData, setProjectData] = useState([]);
