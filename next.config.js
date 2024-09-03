@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
+<<<<<<< HEAD
 const nextConfig = {
   
+=======
+const nextConfig = { 
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
   reactStrictMode: true,
   images: {
-    domains: ['localhost'], // Add your domain(s) here
+    domains: ['api.thecodecafelab.com'], 
   },
 };
 

@@ -42,7 +42,11 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 console.log("BASEURL =====>", baseUrl)
 
 
+<<<<<<< HEAD
 const ProjectArea = () => {
+=======
+const Temtenomial = () => {
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
    const [isDragged, setIsDragged] = useState(false);
    const [projectData, setProjectData] = useState([]);
 
@@ -165,4 +169,4 @@ const ProjectArea = () => {
    );
 };
 
-export default ProjectArea;
+export default Temtenomial;

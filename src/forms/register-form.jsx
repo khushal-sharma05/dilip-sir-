@@ -139,9 +139,14 @@ import EyeOff from "../svg/eye-off";
 import EyeOn from "../svg/eye-on";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup"; 
+import * as yup from "yup";
 import Link from "next/link";
+<<<<<<< HEAD
 import { useRouter } from "next/router"; // Import useRouter
+=======
+import axios from "axios";
+import { useRouter } from 'next/router';
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
 
 // Validation schema
 const schema = yup
@@ -153,6 +158,11 @@ const schema = yup
   .required();
 
 const RegisterForm = () => {
+<<<<<<< HEAD
+=======
+  const [serverError, setServerError] = useState('');
+
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
   const {
     register,
     handleSubmit,
@@ -161,6 +171,30 @@ const RegisterForm = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+<<<<<<< HEAD
+=======
+  const onSubmit = async (data) => {
+    try {
+      // Send POST request to your API endpoint using Axios
+      const response = await axios.post('http://localhost:8000/admin-register', data);
+
+      if (response.status === 200) {
+        console.log('Success:', response.data);
+        reset();
+        router.push('/login');
+
+      } else {
+        console.error('Error:', response.data.message);
+        setServerError(response.data.message);
+      }
+    } catch (error) { 
+      setServerError(error.response?.data.message || 'An unexpected error occurred. Please try again.'); // Set generic error message
+      console.error('Request failed', error.response?.data || error.message);
+
+    }
+    // reset()
+  };
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
 
   const router = useRouter(); // Initialize the useRouter hook
 
@@ -203,17 +237,24 @@ const RegisterForm = () => {
         <div className="row">
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
+<<<<<<< HEAD
               <input 
                 name="fullname"
                 {...register("fullname")}
                 className="inputText" 
+=======
+              <input
+                name="fullname"
+                {...register("fullname")}
+                className="inputText"
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
               />
               <span className="floating-label">Full Name</span>
               <p className="form_error">{errors.fullname?.message}</p>
             </div>
           </div>
           <div className="col-12">
-            <div className="postbox__comment-input mb-30"> 
+            <div className="postbox__comment-input mb-30">
               <input
                 name="email"
                 className="inputText"
@@ -225,7 +266,11 @@ const RegisterForm = () => {
           </div>
           <div className="col-12">
             <div className="mb-30">
+<<<<<<< HEAD
               <div className="postbox__comment-input"> 
+=======
+              <div className="postbox__comment-input">
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
                 <input
                   id="myInput"
                   className="inputText password"
@@ -240,7 +285,11 @@ const RegisterForm = () => {
                       <EyeOff />
                     </span>
                   ) : (
+<<<<<<< HEAD
                     <span className="eye-on">
+=======
+                    <span className="eye-off">
+>>>>>>> 8ed80a4c71fd51a813f6e81dedb528cd6de3deef
                       <EyeOn />
                     </span>
                   )}
@@ -248,8 +297,9 @@ const RegisterForm = () => {
               </div>
               <p className="form_error">{errors.password?.message}</p>
             </div>
-          </div> 
+          </div>
         </div>
+        {/* Display server error */}
 
         <div className="signin-banner-form-remember">
           <div className="row">
@@ -278,7 +328,8 @@ const RegisterForm = () => {
             </div>
           </div>
         </div>
-        <div className="signin-banner-from-btn mb-20">
+        <div className="signin-banner-from-btn mb-20 ">
+          {serverError && <p style={{ color: 'red' }}>{serverError}</p>}
           <button type="submit" className="signin-btn ">Register</button>
         </div>
       </form>
